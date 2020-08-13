@@ -2,6 +2,7 @@ package emoji
 
 import "regexp"
 
+// RemoveEmoji - removes all emojies from string
 func RemoveEmoji(text string) string {
 	regex := regexp.MustCompile(`/([0-9#][\x{20E3}])|` +
 		`[\x{00ae}\x{00a9}\x{203C}\x{2047}\x{2048}\x{2049}\x{3030}\x{303D}\x{2139}\x{2122}\x{3297}\x{3299}]|` +
