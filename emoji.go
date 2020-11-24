@@ -21,7 +21,17 @@ var regex = regexp.MustCompile(`/([0-9#][\x{20E3}])|` +
 	`[\x{2700}-\x{27BF}]|` +
 	`[\x{10000}-\x{E01EF}]`)
 
-// RemoveEmoji - removes all emojies from string
-func RemoveEmoji(text string) string {
-	return regex.ReplaceAllString(text, "")
+var (
+	emptyByteSlice = []byte("")
+	emptyString    = ""
+)
+
+// RemoveString - removes all emojies from string
+func RemoveString(text string) string {
+	return regex.ReplaceAllString(text, emptyString)
+}
+
+// Remove - removes all emojies from byte slice
+func Remove(text []byte) []byte {
+	return regex.ReplaceAll(text, emptyByteSlice)
 }
